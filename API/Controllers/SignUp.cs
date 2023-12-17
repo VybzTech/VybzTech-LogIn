@@ -36,10 +36,10 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public string logIn(Registration registration)
+        public string logIn(Login login)
         {
             SqlConnection con = new SqlConnection(_config.GetConnectionString("VybzTech_LogIn")?.ToString());
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM SignUpDB WHERE Email = '" + registration.Email + "' AND Password = '" + registration.Password + "' AND IsActive = 1", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM SignUpDB WHERE Email = '" + login.Email + "' AND Password = '" + login.Password + "' AND IsActive = " + 1, con);
             DataTable data = new DataTable();
             adapter.Fill(data);
             if (data.Rows.Count > 0) { return "Successful: Valid User"; } else { return "Error: Invalid User"; }

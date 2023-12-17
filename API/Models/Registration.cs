@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    public class Registration : Login 
+    public class Registration : Login
     {
-        public Registration()
-        {
-            
-        }
+        public int id { get; set; }
+        public string? UserName { get; set; }
         
     }
 }
