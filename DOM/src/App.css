@@ -1,19 +1,55 @@
-/* #root {
-  margin: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  scroll-snap-type: mandatory;
-}
-body {
-  background:linear-gradient(140deg,#555, #444,#111);
-} */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-*{
+/* #root { */
+@font-face {
+  font-family: Mont;
+  src: url("./Fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: MontS;
+  src: url("./Fonts/Montserrat-SemiBold.ttf");
+}
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  background: linear-gradient(140deg, #222, #2e2e2e, #3a3a3a, #222);
+}
+* {
   @apply m-0 p-0;
 }
+.hero span,
+.hero p,
+h3 {
+  font-family: Mont;
+}
+input::placeholder {
+  font-family: Mont;
+  font-weight: 300;
+  color: #515151;
+  font-size: 0.8rem;
+  text-shadow: 0 0 1px #555;
+}
+.formWrapper {
+  box-shadow: 0 0 2rem 0.5rem #0a0a1a44;
+}
+/* XTRA CLASSES */
+.hero img:hover {
+  filter: invert(1) drop-shadow(0 0 2em #646cffaa);
+}
+.hero img {
+  will-change: filter;
+  transition: filter 300ms;
+}
+.trans {
+  @apply transition-all ease-in-out;
+}
+/* @apply ; */
+/* @apply ; */
 /* 
 
 .logo {
@@ -23,7 +59,6 @@ body {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);

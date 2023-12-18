@@ -3,12 +3,16 @@
 // import viteLogo from "/vite.svg";
 import * as React from "react";
 import "./App.css";
-import Form from "./components/Form";
+import Form from "./Components/Form";
 
 function App() {
   // const [count, setCount] = useState(0)
 
-  return <Form />;
+  return (
+    <div className="w-full h-[100vh]">
+      <Form />
+    </div>
+  );
 }
 
 export default App;

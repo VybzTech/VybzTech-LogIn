@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# I overcame the tailwind bug by:
+# installing the Dependencies: npm install -D tailwindcss autoprefixer postcss
+# Once Installed, Initialize tailwind: npx tailwindcss init -p
+# Check and add config in tailwind.config.js
+# Addd import in entry css file 
+
