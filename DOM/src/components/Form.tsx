@@ -2,7 +2,7 @@ import * as React from "react";
 import VybzTech from "../VybzTech.png";
 import SignUp from "./SignUp";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
-
+import { LogIn_Url } from "./Spotify";
 import axios from "axios";
 
 type Profile = {
@@ -89,6 +89,8 @@ const Form: React.FC = () => {
       {/* GOOGLE AUTH */}
       <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
       {/* SPOTIFY AUTH */}
+      <a href={LogIn_Url}>Sign In to Spotify</a>
+      {/* <a href="http://"></a> */}
     </div>
   );
 };
