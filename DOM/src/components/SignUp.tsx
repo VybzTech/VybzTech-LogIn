@@ -27,9 +27,9 @@ const SignUp: React.FC = () => {
     // return obj;
   };
   return (
-    <div className="">
-      <h3 className="text-white text-xl tracking-tight">Sign Up to Proceed</h3>
-      <form className="px-5 mt-5" onSubmit={SaveUser}>
+    <div className="SignUpForm">
+      <h3 className="text-white text-2xl tracking-tight">Join our <span className="text-blue-500 font-bold">Team</span> !</h3>
+      <form className="px-6 mt-5" onSubmit={SaveUser}>
         {/* USER NAME */}
         <div className="flex gap-3 w-full">
           <Input

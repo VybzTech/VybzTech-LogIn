@@ -18,6 +18,10 @@ npm install vitest
 npm install --save react-spotify-auth 
  npm install @react-oauth/google@latest
 
+Followed https://developer.spotify.com/documentation/web-api/concepts/authorization on how to setup spotify login auth 
+
+
+
 
 N-5403302
 -

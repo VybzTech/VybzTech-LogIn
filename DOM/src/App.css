@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: Alex;
-  src: url("./Fonts/Alexana\ Neue.ttf");
+  src: url("./Fonts/Alexana.ttf");
 }
 body {
   background: linear-gradient(140deg, #222, #2e2e2e, #3a3a3a, #222);
@@ -22,29 +22,25 @@ body {
   font-family: sans-serif;
   scroll-behavior: smooth;
 }
-.hero span,
 .hero p {
-  font-family: Mont;
+  font-family: Alex;
 }
-h3 {
-  font-family: MontS;
+h3,
+.hero span {
+  font-family: Mont;
 }
 .divider span,
 input::placeholder {
   font-family: Mont;
   font-weight: 300;
-  color: #515151;
-  font-size: 0.8rem;
-  text-shadow: 0 0 1px #555;
-}
-.formWrapper {
-  box-shadow: 0 0 2rem 0.5rem #0a0a1a44, inset 0 -5px 1.2rem 0.1rem #333;
+  color: #555;
+  font-size: 0.85rem;
+  text-shadow: 0 0 0.5px #555;
 }
 .btn {
   background: linear-gradient(188deg, #056bca 0%, #7404dd 95%);
   font-family: Mont;
   text-shadow: 0 0 1px #fafafa;
-  /* background:linear-gradient(90deg,#056bca 0%,#d62828 100%); #7404dd*/
 }
 .btn:focus,
 .btn:focus-visible,
@@ -54,23 +50,13 @@ input::placeholder {
 .signup span {
   font-family: Mont;
   font-weight: 300;
-  @apply tracking-tighter italic text-zinc-400 text-xs sm:text-[0.7rem];
+  @apply tracking-tighter italic text-zinc-400 text-[0.6rem] sm:text-[0.7rem];
 }
 .signup > span:first-of-type {
   @apply pt-7;
 }
 .signup > span > span {
   color: #d62828;
-}
-.divider span {
-}
-/* XTRA CLASSES */
-.hero img:hover {
-  filter: invert(1) drop-shadow(0 0 2em #646cffaa);
-}
-.hero img {
-  will-change: filter;
-  transition: filter 300ms;
 }
 .trans {
   @apply transition-all ease-in-out;
@@ -81,4 +67,15 @@ input::placeholder {
 .fadePill.right {
   background: linear-gradient(-90deg, #292929 20%, #667 80%);
 }
-/* @apply ; */
+/*
+.divider span {
+}
+/* XTRA CLASSES 
+.hero img:hover {
+  filter: invert(1) drop-shadow(0 0 2em #646cffaa);
+}
+.hero img {
+  will-change: filter;
+  transition: filter 300ms;
+}
+ @apply ; */

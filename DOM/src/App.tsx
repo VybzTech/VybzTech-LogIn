@@ -1,19 +1,19 @@
 import * as React from "react";
 import "./App.css";
-import Form from "./Components/Form";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Container from "./Components/Container";
 
 function App() {
-  // const [count, setCount] = useState(0)
   const ID = import.meta.env.VITE_GOOGLE_ClientID;
-  //  env.REACT_APP_ClientID;
   if (!ID) {
-    console.error("API key not found. Please check your environment variables.");
+    console.error(
+      "Google API key not found. Please check your environment variables."
+    );
   }
   return (
     <GoogleOAuthProvider clientId={ID}>
-      <div className="App w-full h-[100vh]">
-        <Form />
+      <div className="App w-full">
+        <Container />
       </div>
     </GoogleOAuthProvider>
   );

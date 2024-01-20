@@ -9,7 +9,6 @@ type ButtonProp = {
 };
 const Button = (props: ButtonProp) => {
   const { name, fnc } = props;
-  //   return <div className="px-7 py-3.5">{name}</div>;
   const [clicked, setClicked] = React.useState(false);
   return (
     <button type="submit"
@@ -17,13 +16,11 @@ const Button = (props: ButtonProp) => {
       onClick={(e) => {
         e.target?.classList.toggle("animate-bounce");
         setClicked((c) => (c = !c));
-        // console.log(e.target?.classList.toggle('animate-bounce'));
         e.preventDefault();
         fnc;
       }}
       onBlur={(e) => {
         e.target?.classList.toggle("animate-bounce");
-        // setClicked((c) => (c = !c));
       }}
     >
       {clicked ? <Puff speed={0.75} width={20} height={24} /> : name}
