@@ -1,0 +1,27 @@
+Simple Vite Project setup 
+
+
+Sign up 
+
+Email | Password | Date registered | 
+
+
+Setup Facebook sign Up
+
+Modal of registered user for newsletter
+
+Go to /admin - to view registeered users
+
+Database registeration of users for newletter
+
+npm install vitest
+npm install --save react-spotify-auth 
+ npm install @react-oauth/google@latest
+
+
+N-5403302
+-
+Mr. David David Afolabi
+afodaniseop@yahoo.com
+0806675392
+

@@ -12,7 +12,7 @@ const Button = (props: ButtonProp) => {
   //   return <div className="px-7 py-3.5">{name}</div>;
   const [clicked, setClicked] = React.useState(false);
   return (
-    <button
+    <button type="submit"
       className="btn trans flex justify-center text-zinc-300 w-full px-7 py-4 rounded rounded-xl text-center hover:tracking-tight"
       onClick={(e) => {
         e.target?.classList.toggle("animate-bounce");

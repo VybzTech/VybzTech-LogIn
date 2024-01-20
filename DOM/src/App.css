@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* #root { */
 @font-face {
   font-family: Mont;
   src: url("./Fonts/Montserrat-Regular.ttf");
@@ -9,6 +8,10 @@
 @font-face {
   font-family: MontS;
   src: url("./Fonts/Montserrat-SemiBold.ttf");
+}
+@font-face {
+  font-family: Alex;
+  src: url("./Fonts/Alexana\ Neue.ttf");
 }
 body {
   background: linear-gradient(140deg, #222, #2e2e2e, #3a3a3a, #222);
@@ -47,8 +50,6 @@ input::placeholder {
 .btn:focus-visible,
 .btn:focus-within {
   outline: none;
-  /* border: 1px solid #056bca; */
-  /* border: 1px solid #056bca; */
 }
 .signup span {
   font-family: Mont;
@@ -75,46 +76,9 @@ input::placeholder {
   @apply transition-all ease-in-out;
 }
 .fadePill {
-  background: linear-gradient(90deg, #222 0%, #667 80%);
+  background: linear-gradient(90deg, #292929 20%, #667 80%);
 }
 .fadePill.right {
-  background: linear-gradient(-90deg, #222 0%, #667 80%);
+  background: linear-gradient(-90deg, #292929 20%, #667 80%);
 }
 /* @apply ; */
-/* @apply ; */
-/* 
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
