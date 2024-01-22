@@ -2,6 +2,7 @@ import * as React from "react";
 import "./App.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Container from "./Components/Container";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const ID = import.meta.env.VITE_GOOGLE_ClientID;
@@ -14,6 +15,7 @@ function App() {
     <GoogleOAuthProvider clientId={ID}>
       <div className="App w-full">
         <Container />
+        <Toaster />
       </div>
     </GoogleOAuthProvider>
   );
