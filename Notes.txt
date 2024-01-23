@@ -58,3 +58,39 @@ afodaniseop@yahoo.com
     "picture": "https://lh3.googleusercontent.com/a/ACg8ocIsZk8TmSXVMugfDyWumEAtR0DUA0lYWXdhPYnMrat-rdc=s96-c",
     "locale": "en"
 }
+
+
+
+{
+    "display_name": "Dharvo",
+    "external_urls": {
+        "spotify": "https://open.spotify.com/user/316jjj7piautpelagbtlsuzaibua"
+    },
+    "href": "https://api.spotify.com/v1/users/316jjj7piautpelagbtlsuzaibua",
+    "id": "316jjj7piautpelagbtlsuzaibua",
+    "images": [
+        {
+            "url": "https://i.scdn.co/image/ab67757000003b82b25eec08995539728e8a44a5",
+            "height": 64,
+            "width": 64
+        },
+        {
+            "url": "https://i.scdn.co/image/ab6775700000ee85b25eec08995539728e8a44a5",
+            "height": 300,
+            "width": 300
+        }
+    ],
+    "type": "user",
+    "uri": "spotify:user:316jjj7piautpelagbtlsuzaibua",
+    "followers": {
+        "href": null,
+        "total": 0
+    },
+    "country": "NG",
+    "product": "free",
+    "explicit_content": {
+        "filter_enabled": false,
+        "filter_locked": false
+    },
+    "email": "adedave77@gmail.com"
+}

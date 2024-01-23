@@ -7,7 +7,7 @@ const Hero = () => {
       {/*  HERO  */}
       <div className="flex items-center justify-center">
         <img className="w-7 mr-1.5" src={VybzTech} alt="VybzTech Logo" />
-        <p className="text-3xl text-white tracking-wider pt-1">VybzTech .Inc</p>
+        <p className="text-3xl text-white tracking-wider pt-1">ybzTech .Inc</p>
       </div>
       <span
         className="mb-8 tracking-tighter italic text-zinc-500 text-xs

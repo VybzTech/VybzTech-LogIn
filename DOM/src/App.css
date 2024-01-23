@@ -6,10 +6,6 @@
   src: url("./Fonts/Montserrat-Regular.ttf");
 }
 @font-face {
-  font-family: MontS;
-  src: url("./Fonts/Montserrat-SemiBold.ttf");
-}
-@font-face {
   font-family: Alex;
   src: url("./Fonts/Alexana.ttf");
 }
@@ -27,7 +23,7 @@ body {
 }
 .hero p {
   font-family: Alex;
-  font-weight: 600;
+  /* font-weight: 500; */
 }
 h3,
 h3 > span,
@@ -42,8 +38,13 @@ input::placeholder {
   font-size: 0.85rem;
   text-shadow: 0 0 0.5px #555;
 }
+input {
+  font-family: Mont;
+  color: #fff;
+  font-size: 0.9rem;
+}
 .btn {
-  background: linear-gradient(188deg, #056bca 0%, #7404dd 95%);
+  background: linear-gradient(183deg, #056bca 0%, #7404dd 95%);
   font-family: Mont;
   text-shadow: 0 0 1px #fafafa;
 }
@@ -73,6 +74,11 @@ input::placeholder {
   background: linear-gradient(-90deg, #292929 20%, #667 80%);
 }
 
+.pillBtn {
+  @apply h-full w-full transition-all
+   font-sans rounded rounded-[.74rem] tracking-tight 
+  font-semibold p-4 mt-3 hover:tracking-normal duration-300;
+}
 /* GOOGLE PROVIDER EDITS */
 div[id$="-wrapper"] {
   @apply mt-2.5;
