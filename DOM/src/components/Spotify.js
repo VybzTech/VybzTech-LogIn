@@ -20,6 +20,6 @@ export const getTokenFromUrl = () => {
 
   //   return initial
   // })
-  console.log(window.location.hash);
+  // console.log(window.location.hash);
   return "";
 };

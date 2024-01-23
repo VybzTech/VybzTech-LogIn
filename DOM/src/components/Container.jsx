@@ -1,71 +1,84 @@
 import React from "react";
-import VybzTech from "../VybzTech.png";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import SignUp from "./SignUp";
+import { GoogleLogin, useGoogleLogin, googleLogout } from "@react-oauth/google";
 import { LogIn_Url, getTokenFromUrl } from "./Spotify";
 import axios from "axios";
 import Form from "./Form";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState } from "react";
-
-// type Profile = {
-//   name: string;
-//   picture: string;
-//   email: string;
-// };
+import { toast } from "react-hot-toast";
+import Hero from "./Hero";
+import Divider from "./Divider";
 
 const Container = () => {
-  //   const [user, setUser] = React.useState<[]>([]);
-  //   const [profile, setProfile] = React.useState<Profile>();
-  //   const [profile, setProfile] = React.useState<Profile>([]);
-
-  // const login = useGoogleLogin({
-  //     onSuccess: (codeResponse) => setUser(codeResponse),
-  //     onError: (error) => console.log('Login Failed:', error)
-  // });
-
-  const [user, setUser] = React.useState([]);
-  const [profile, setProfile] = React.useState();
-  // console.log(profile);
-
-  const responseMessage = (response) => {
-    console.log(response);
-    setUser(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
-
   const spotifyApi = new SpotifyWebApi();
-  const [spotifyToken, getSpotifyToken] = useState("");
+  const [user, setUser] = React.useState(null);
+  const [GoogleProfile, setGoogleProfile] = React.useState(null);
+  const [SpotifyProfile, setSpotifyProfile] = React.useState(null);
+
+  const login = useGoogleLogin({
+    onSuccess: (userResponse) => {
+      // setUser(userResponse);
+      setGoogleProfile(userResponse);
+    },
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  const [spotifyToken, setSpotifyToken] = useState("");
 
   React.useEffect(() => {
-    if (user) {
+    if (GoogleProfile) {
       axios
         .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${GoogleProfile.access_token}`,
           {
             headers: {
-              Authorization: `Bearer ${user.access_token}`,
+              Authorization: `Bearer ${GoogleProfile.access_token}`,
               Accept: "application/json",
             },
           }
         )
         .then((res) => {
-          setProfile(res.data);
+          // SET USER's PROFILE
+          setUser(res.data);
+          // SEND RECEIVED USED TOAST
+          toast.success(`Welcome Mr ${res.data.given_name}`);
+          // options?: Partial<Pick<Toast, "id" | "icon" | "duration" | "ariaProps" | "className" | "style" | "position" | "iconTheme">> | undefined): string
+          // setGoogleProfile(res.data);
         })
-        .catch((err) => console.log(err)
-        
-        // RUN ERRO MESSGAE
+        .catch(
+          (err) => {
+            console.log(err);
+            console.log(GoogleProfile);
+            GoogleProfile && toast.error("Error logging in with Google");
+          }
+          // RUN ERROR- MESSAGE
         );
+      // console.log("Here's your Gmail profile ", GoogleProfile);
     }
 
     // SPOTIFY API
-    console.log("This is our dervided token", getTokenFromUrl());
-  }, [user]);
+    // console.log("This is our dervided token", getTokenFromUrl());
+    const _spotifyToken = getTokenFromUrl().access_token;
+    // console.log("This is your Token", _spotifyToken);
+    // window.location.hash=""
+    if (_spotifyToken) {
+      setSpotifyToken(_spotifyToken);
+      spotifyApi.setAccessToken(_spotifyToken);
+
+      spotifyApi.getMe().then((user) => {
+        console.log("DIS IS YOU", user);
+      });
+      setSpotifyProfile;
+    }
+
+    console.log("This is User", user);
+  }, [GoogleProfile, SpotifyProfile]);
 
   const logOut = () => {
     googleLogout();
-    setProfile(null);
+    setGoogleProfile(null);
+    setUser({});
   };
 
   return (
@@ -75,33 +88,29 @@ const Container = () => {
       sm:max-w-[70%] sm:px-6 
       md:max-w-[50%] lg:px-14"
     >
-      {/*  HERO  */}
-      <div className="hero w-fit mx-auto mb-11">
-        <div className="flex items-center justify-center">
-          <img className="w-7 mr-1.5" src={VybzTech} alt="VybzTech Logo" />
-          <p className="text-3xl text-white tracking-wider pt-1">
-            VybzTech .Inc
-          </p>
-        </div>
-        <span
-          className="mb-8 tracking-tighter italic text-zinc-500 text-xs
-         sm:text-[0.8rem]"
-        >
-          We guarantee your project's success
-        </span>
-      </div>
+      <Hero />
       {/*  AUTH */}
-      <Form props={profile} />
+      {/* <Form props={user} /> */}
+
+      {/* console.log(props);
+  const { name, picture, email } = props; */}
+
+      {user ? (
+        <>
+          <h3>Signed In</h3>
+          <img src={user.picture} alt="user image" />
+          <p>Name: {user.name}</p>
+          <p>Email Address: {user.email}</p>
+        </>
+      ) : (
+        <SignUp />
+      )}
       {/* DIVIDER */}
-      <div className="divider mt-0.5 flex items-center justify-evenly">
-        <div className="fadePill w-full mx-2.5 h-0.5" />
-        <span>OR</span>
-        <div className="fadePill right w-full mx-2.5 h-0.5"></div>
-      </div>
+      <Divider />
 
       <div className="h-max w-[70%] mt-5 m-auto [&>div]:justify-center [&>div]:flex [&>div]:mb-3">
         {/* GOOGLE AUTH */}
-        <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+        <button onClick={() => login()}>Sign in with Google 🚀 </button>
         {/* SPOTIFY AUTH */}
         <a
           href={LogIn_Url}
@@ -109,6 +118,7 @@ const Container = () => {
           text-white font-sans rounded rounded-[4rem] tracking-tight 
           font-semibold p-4 mt-3 hover:tracking-normal duration-300"
         >
+          <img src="" alt="" />
           Log In with Spotify
         </a>
       </div>

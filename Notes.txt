@@ -29,3 +29,32 @@ Mr. David David Afolabi
 afodaniseop@yahoo.com
 0806675392
 
+
+
+{
+    "credential": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4YTYzYmM0NzY3Zjg1NTBhNTMyZGM2MzBjZjdlYjQ5ZmYzOTdlN2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3NjYxNDI0NzMzODktYTU3czg2OTJjcDZzbW4za29xZzI0MGwxMnFnZjNuNGEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3NjYxNDI0NzMzODktYTU3czg2OTJjcDZzbW4za29xZzI0MGwxMnFnZjNuNGEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDYxNjE3MDAxNzUzNzQ2MDY2NDAiLCJlbWFpbCI6ImFkZWRhdmU3N0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzA1OTM4MzA1LCJuYW1lIjoiRGF2aWQgQWRlYm95ZWpvIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lzWms4VG1TWFZNdWdmRHlXdW1FQXRSMERVQTBsWVdYZGhQWW5NcmF0LXJkYz1zOTYtYyIsImdpdmVuX25hbWUiOiJEYXZpZCIsImZhbWlseV9uYW1lIjoiQWRlYm95ZWpvIiwibG9jYWxlIjoiZW4iLCJpYXQiOjE3MDU5Mzg2MDUsImV4cCI6MTcwNTk0MjIwNSwianRpIjoiY2NjOTYyNDA2OGY0M2FkMmFiYTVlMTM4ZjFlYmQ3OWI3NmVkYzExMiJ9.cd9I8GvS4Bhcxwu4C-XryCln38ZT3XajeyXVzpt8oX9QrpGDpftTe94rKKVV9WQEIgLAk4NkFaffcL-SRmgayu0gvOoxwIU3Cr9RpPpnMnlP8kV8O_FQMJ19zxtcVcpe8utGnbjK2eEF8lq7JYlHwnByoM_Q5fDl28JxJNsFKsVhL10wWCbYP52rIv0l2OklAlmzpZX_mn1foihcocyjIDc5Z5Id4wwAVHcTVNpnin7MWIcdSX_mdLS_l3mRTuEXy8v6uVWiCJHZXComu6UabKMAFGNiNmwRpjAXEgcdIYgzUiRG8A2pqBV3vlahzMluAPylQ2SUVECUAIk01aTaJw",
+    "clientId": "766142473389-a57s8692cp6smn3koqg240l12qgf3n4a.apps.googleusercontent.com",
+    "select_by": "btn_confirm"
+}
+
+
+{
+    "access_token": "ya29.a0AfB_byB6NAKPbAmDCfF3s-sO_7itScN5zyWSB163G25vEbjbqKbQqNE7_JXrAMc_-rQqhEmLYx1lqypU3qnFS35cGFbficQyijHVxswmSqdGvLLY8Uaxb1yOysq4fCB8oc2Q0D7scRpXhfGaYIWAYWh1sOSOMejcSQaCgYKAaISARISFQHGX2Mi7X4XmpFW43EX7wQDd219eg0169",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "email profile https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/userinfo.profile",
+    "authuser": "0",
+    "prompt": "none"
+}
+
+
+{
+    "id": "106161700175374606640",
+    "email": "adedave77@gmail.com",
+    "verified_email": true,
+    "name": "David Adeboyejo",
+    "given_name": "David",
+    "family_name": "Adeboyejo",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocIsZk8TmSXVMugfDyWumEAtR0DUA0lYWXdhPYnMrat-rdc=s96-c",
+    "locale": "en"
+}

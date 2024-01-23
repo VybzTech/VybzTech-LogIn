@@ -2,12 +2,15 @@ import * as React from "react";
 import SignUp from "./SignUp";
 
 type Profile = {
-  name: string;
-  picture: string;
-  email: string;
+  props: {
+    name: string;
+    picture: string;
+    email: string;
+  };
 };
 
-const Form: React.FC = (props: Profile) => {
+const Form: React.FC = ({ props }: Profile) => {
+  console.log(props);
   const { name, picture, email } = props;
 
   if (props) {
