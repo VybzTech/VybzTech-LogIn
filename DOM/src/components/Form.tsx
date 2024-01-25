@@ -31,9 +31,9 @@ const Form: React.FC = () => {
       <h3 className="text-white text-3xl tracking-tight">
         Join our <span className="text-blue-600 font-bold">Team</span> ❗
       </h3>
-      <form className="mt-8" onSubmit={SaveUser}>
+      <form className="mt-6 sm:mt-9" onSubmit={SaveUser}>
         {/* USER NAME */}
-        <div className="flex gap-3 w-full">
+        <div className="sm:flex gap-3 w-full">
           <Input
             value={firstName}
             setter={setUser}
@@ -54,7 +54,7 @@ const Form: React.FC = () => {
           placeholder={"Password"}
           type="password"
         />
-        <div className="Form mt-6 mb-4">
+        <div className="signup mt-6 mb-4">
           <Button name={"Sign Up"} />
           <span>
             By clicking sign up, you agree to our

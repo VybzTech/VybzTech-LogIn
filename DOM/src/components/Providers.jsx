@@ -1,23 +1,40 @@
-import React from "react";
-import { useGoogleLogin } from "@react-oauth/google";
+import React, { useState } from "react";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import SpotifyIcon from "../Images/SpotifyPng.png";
 import GmailIcon from "../Images/GmailPng.png";
 import { LogIn_Url } from "./Spotify";
 
-const Providers = (google) => {
+const Providers = ({ setGoogleProfile }) => {
+  const [goog, setGoog] = useState(false);
+
   const login = useGoogleLogin({
+    // console.log(userResponse);
     onSuccess: (userResponse) => {
       // setUser(userResponse);
-      google(userResponse);
+      console.log("userResponse", userResponse);
+      setGoogleProfile(userResponse);
+      setGoog((f) => (f = !f));
     },
     onError: (error) => console.log("Login Failed:", error),
   });
 
-  //   const logOut = () => {
-  //     googleLogout();
-  //     setGoogleProfile(null);
-  //     setUser({});
-  //   };
+  const logOut = () => {
+    googleLogout();
+    setGoogleProfile(null);
+    // setUser({});
+  };
+
+  if (goog) {
+    return (
+      <button
+        className="pillBtn flex items-center justify-center  text-black bg-gray-100 hover:bg-gray-200"
+        onClick={() => logOut()}
+      >
+        <img className="w-5 mr-3" src={GmailIcon} alt="Spotify Image Png" />
+        Sign Out
+      </button>
+    );
+  }
 
   return (
     <div className="h-max mt-5 m-auto [&>div]:justify-center [&>div]:flex [&>div]:mb-4">

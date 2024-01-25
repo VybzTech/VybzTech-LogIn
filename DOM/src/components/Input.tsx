@@ -17,7 +17,7 @@ const Input: React.FC = (props: InputProps) => {
         min={3}
         placeholder={placeholder}
         onChange={
-          !type
+          type
             ? (e) => console.log(e?.target?.value)
             : (e) => setter(e?.target?.value)
         }

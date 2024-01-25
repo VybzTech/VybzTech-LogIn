@@ -27,7 +27,6 @@ const Container = () => {
   // });
 
   // const [spotifyToken, setSpotifyToken] = useState("");
-
   React.useEffect(() => {
     if (GoogleProfile) {
       axios
@@ -52,6 +51,7 @@ const Container = () => {
           (err) => {
             console.log(err);
             console.log(GoogleProfile);
+            toast.error(`Error logging in with Google ${err?.name}`);
             GoogleProfile && toast.error("Error logging in with Google");
           }
           // RUN ERROR- MESSAGE
@@ -69,23 +69,29 @@ const Container = () => {
         setUser(user);
       });
     }
-  }, []);
+  // }, []);
+  }, [GoogleProfile]);
   // }, [GoogleProfile, SpotifyProfile]);
 
   return (
     <div
       className="formWrapper bg-[#292929] my-12 mb-16 pb-16 py-8 m-auto 
-      text-center rounded rounded-3xl min-w-[60%]
-      sm:max-w-[70%] sm:px-6 
-      md:max-w-[50%] lg:px-14"
+      text-center rounded rounded-3xl min-w-[60%] max-w-[90%] px-10
+      sm:max-w-[70%] sm:px-8 
+      md:max-w-[50%] 
+      lg:px-14 lg:min-w-[30%] lg:max-w-[45%]"
     >
       <Hero />
       {/*  AUTH */}
       {/* {console.log(user)} */}
       <Auth props={user} />
+      {console.log(GoogleProfile)}
       {/* DIVIDER */}
       <Divider />
-      <Providers google={setGoogleProfile} />
+      <Providers
+        GoogleProfile={GoogleProfile}
+        setGoogleProfile={setGoogleProfile}
+      />
     </div>
   );
 };

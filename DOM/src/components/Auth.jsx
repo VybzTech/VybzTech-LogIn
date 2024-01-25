@@ -7,14 +7,14 @@ const Auth = ({ props }) => {
   const user = {
     name: props?.name ?? props?.display_name.split(" ")[0],
     image: props?.picture ?? props?.images[0]?.url,
-    // email: props.email,
+    email: props.email,
   };
 
   if (props) {
     return (
       <>
-        <h3>Signed In</h3>
-        <img src={user.image} alt="User's  image" />
+        <img className='w-16 rounded rounded-[10rem] object-contain' src={user.image} alt="User's  image" />
+        <h3>Signed In as: {user.email}</h3>
         <p>Name: {user.name}</p>
         {/* <p>Email Address: {user.email}</p> */}
       </>
