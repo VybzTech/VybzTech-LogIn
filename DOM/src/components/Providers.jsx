@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import SpotifyIcon from "../Images/SpotifyPng.png";
 import GmailIcon from "../Images/GmailPng.png";
-import { LogIn_Url } from "./Spotify";
+import { LogIn_Url } from "../Data/Spotify";
 
-const Providers = ({ setGoogleProfile }) => {
+const Providers = ({ spotted, googleProfile, setGoogleProfile }) => {
   const [goog, setGoog] = useState(false);
 
   const login = useGoogleLogin({
@@ -33,6 +33,17 @@ const Providers = ({ setGoogleProfile }) => {
         <img className="w-5 mr-3" src={GmailIcon} alt="Spotify Image Png" />
         Sign Out
       </button>
+    );
+  }
+  if (spotted) {
+    return (
+      <a
+        // href="https://www.spotify.com/fr/logout/show_dialog=true"
+        className="pillBtn flex items-center justify-center bg-green-500 text-white  hover:bg-green-600"
+      >
+        <img className="w-5 mr-5" src={SpotifyIcon} alt="Spotify Image Png" />
+        Log Out
+      </a>
     );
   }
 

@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="hero w-fit mx-auto mb-11">
       {/*  HERO  */}
       <div className="flex items-center justify-center">
-        <img className="w-6 mr-0.5" src={VybzTech} alt="VybzTech Logo" />
+        <img className="w-7 mr-0.5" src={VybzTech} alt="VybzTech Logo" />
         <p className="text-3xl text-white tracking-wider lg:pt-1">ybzTech .Inc</p>
       </div>
       <span

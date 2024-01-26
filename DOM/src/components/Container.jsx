@@ -1,7 +1,7 @@
 import React from "react";
 // import SignUp from "./Sign  Up";
 // import { GoogleLogin, useGoogleLogin, googleLogout } from "@react-oauth/google";
-import { getTokenFromUrl } from "./Spotify";
+import { getTokenFromUrl } from "../Data/Spotify";
 import axios from "axios";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState } from "react";
@@ -11,12 +11,21 @@ import Divider from "./Divider";
 import Auth from "./Auth";
 import Providers from "./Providers";
 import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../Data/AuthContext";
 
 const Container = () => {
   const spotifyApi = new SpotifyWebApi();
   const [user, setUser] = useState(null);
   const [GoogleProfile, setGoogleProfile] = React.useState(null);
   const [SpotifyProfile, setSpotifyProfile] = React.useState(null);
+
+
+  const {accessToken}=useAuth();
+  console.log(accessToken)
+//  GET ACCESS TOKEN 
+// SET IN CONTEXT
+// PULL FROM CONTEXT
+// ACHIEVE USER
 
   // const login = useGoogleLogin({
   //   onSuccess: (userResponse) => {
@@ -26,15 +35,19 @@ const Container = () => {
   //   onError: (error) => console.log("Login Failed:", error),
   // });
 
-  // const [spotifyToken, setSpotifyToken] = useState("");
+  // const [spotted, setSpotted] = useState(false);
   React.useEffect(() => {
+
+
+
     if (GoogleProfile) {
       axios
         .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${GoogleProfile.access_token}`,
+          // `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${GoogleProfile.access_token}`,
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
           {
             headers: {
-              Authorization: `Bearer ${GoogleProfile.access_token}`,
+              Authorization: `Bearer ${accessToken}`,
               Accept: "application/json",
             },
           }
@@ -43,35 +56,48 @@ const Container = () => {
           // SET USER's PROFILE
           setUser(res.data);
           // SEND RECEIVED USED TOAST
-          toast.success(`Welcome Mr ${res.data.given_name}`);
+          toast.success(`Welcome Mr ${res.data.given_name}`, {
+            position: "bottom-right",
+          });
           // options?: Partial<Pick<Toast, "id" | "icon" | "duration" | "ariaProps" | "className" | "style" | "position" | "iconTheme">> | undefined): string
-          // setGoogleProfile(res.data);
         })
-        .catch(
-          (err) => {
-            console.log(err);
-            console.log(GoogleProfile);
-            toast.error(`Error logging in with Google ${err?.name}`);
-            GoogleProfile && toast.error("Error logging in with Google");
-          }
+        .catch((err) => {
+          console.log("Error", err, "Google Profile", GoogleProfile);
           // RUN ERROR- MESSAGE
-        );
-      // console.log("Here's your Gmail profile ", GoogleProfile);
+          toast.error(`Error logging in with Google ${err?.name}`, {
+            position: "bottom-right",
+          });
+          GoogleProfile &&
+            toast.error("Error logging in with Google", {
+              position: "bottom-right",
+            });
+        });
     }
 
     // SPOTIFY API
-    const _spotifyToken = getTokenFromUrl().access_token;
-    if (_spotifyToken) {
+    const _spotifyToken = accessToken;
+    // const _spotifyToken = getTokenFromUrl().access_token;
+    window.location.hash = "";
+    if (SpotifyProfile) {
       // setSpotifyToken(_spotifyToken);
       spotifyApi.setAccessToken(_spotifyToken);
       spotifyApi.getMe().then((user) => {
         setSpotifyProfile(user);
         setUser(user);
+        // setSpotted(true);
+        toast.success(`Welcome ${user?.display_name}`, {
+          position: "bottom-right",
+          style: 'background-color:"#222"',
+        });
       });
     }
-  // }, []);
+    // }, []);
   }, [GoogleProfile]);
   // }, [GoogleProfile, SpotifyProfile]);
+
+  // const SpotifyLogOut = ()=>{
+
+  // }
 
   return (
     <div
@@ -85,10 +111,10 @@ const Container = () => {
       {/*  AUTH */}
       {/* {console.log(user)} */}
       <Auth props={user} />
-      {console.log(GoogleProfile)}
       {/* DIVIDER */}
-      <Divider />
+      {!user ?? <Divider />}
       <Providers
+        spotted={spotted}
         GoogleProfile={GoogleProfile}
         setGoogleProfile={setGoogleProfile}
       />
